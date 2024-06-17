@@ -1,17 +1,24 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+// React / Hooks
+import { useState, useEffect } from "react";
+
+//Components
+import SearchBar from "./components/SearchBar/SearchBar";
+import PhotoList from "./components/PhotoList/PhotoList";
+import ZoomPhoto from "./components/ZoomPhoto/ZoomPhoto";
+
+//CSS
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div>
+      <div className="container">
         <h1>PicSearch</h1>
       </div>
       <p>An images website</p>
+      <SearchBar />
+      <PhotoList />
+      <ZoomPhoto />
       <button>Testing</button>
     </>
   );
