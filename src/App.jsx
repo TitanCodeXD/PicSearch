@@ -13,6 +13,7 @@ import "./App.css";
 function App() {
   const [query, setQuery] = useState("");
   const [categoria, setCategoria] = useState("");
+  const [photos, setPhotos] = useState([]);
 
   const fetchData = async ([query, categoria]) => {
     const apiKey = import.meta.env.VITE_UNSPLASH_API_KEY;
@@ -20,10 +21,13 @@ function App() {
     const response = await axios.get("https://api.unsplash.com/photos/random", {
       params: {
         client_id: apiKey,
+        count: 2,
       },
     });
 
-    console.log(response);
+    setPhotos(response.data);
+    console.log(setPhotos);
+    console.log(response.data);
   };
 
   useEffect(() => {
@@ -37,7 +41,9 @@ function App() {
       </div>
       <p>An images website</p>
       <SearchBar />
-      <PhotoList />
+
+      <PhotoList photos={photos} />
+
       <ZoomPhoto />
       <button>Testing</button>
     </>
