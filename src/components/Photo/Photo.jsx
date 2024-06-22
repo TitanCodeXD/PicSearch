@@ -4,9 +4,9 @@ import React from "react";
 //CSS
 import "./Photo.css";
 
-const Photo = ({ photo }) => {
+const Photo = ({ photo, setPhotoZoom }) => {
   return (
-    <div className="photo">
+    <div className="photo" onClick={() => setPhotoZoom(photo)}>
       <img src={photo.urls.small} alt={photo.alt_description}></img>
     </div>
   );

@@ -15,6 +15,7 @@ function App() {
   const [query, setQuery] = useState("");
   const [categoria, setCategoria] = useState("");
   const [photos, setPhotos] = useState([]);
+  const [photoZoom, setPhotoZoom] = useState(null);
 
   const fetchData = async ([query, categoria]) => {
     const apiKey = import.meta.env.VITE_UNSPLASH_API_KEY;
@@ -43,9 +44,11 @@ function App() {
         <div className="comp">
           <SearchBar />
 
-          <PhotoList photos={photos} />
+          <PhotoList photos={photos} setPhotoZoom={setPhotoZoom} />
 
-          <ZoomPhoto />
+          {photoZoom && (
+            <ZoomPhoto photo={photoZoom} setPhotoZoom={setPhotoZoom} />
+          )}
         </div>
       </div>
       <Footer />
