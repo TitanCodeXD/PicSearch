@@ -4,6 +4,9 @@ import React from "react";
 //Components
 import Photo from "../Photo/Photo";
 
+//CSS
+import "./PhotoList.css";
+
 const PhotoList = ({ photos }) => {
   return (
     <div className="album">

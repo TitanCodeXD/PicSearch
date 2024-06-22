@@ -1,4 +1,8 @@
+//Hooks
 import React from "react";
+
+//CSS
+import "./Photo.css";
 
 const Photo = ({ photo }) => {
   return (

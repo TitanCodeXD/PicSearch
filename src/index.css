@@ -49,3 +49,9 @@ button {
 button:hover {
   border-color: #646cff;
 }
+
+.container {
+  margin: 20px auto;
+  width: 80%;
+  text-align: center;
+}
