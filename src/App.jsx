@@ -9,6 +9,7 @@ import ZoomPhoto from "./components/ZoomPhoto/ZoomPhoto";
 
 //CSS
 import "./App.css";
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -21,7 +22,7 @@ function App() {
     const response = await axios.get("https://api.unsplash.com/photos/random", {
       params: {
         client_id: apiKey,
-        count: 3,
+        count: 2,
       },
     });
 
@@ -38,14 +39,16 @@ function App() {
     <>
       <div className="container">
         <h1>PicSearch</h1>
+        <p>An images website</p>
+        <div className="comp">
+          <SearchBar />
+
+          <PhotoList photos={photos} />
+
+          <ZoomPhoto />
+        </div>
       </div>
-      <p>An images website</p>
-      <SearchBar />
-
-      <PhotoList photos={photos} />
-
-      <ZoomPhoto />
-      <button>Testing</button>
+      <Footer />
     </>
   );
 }
