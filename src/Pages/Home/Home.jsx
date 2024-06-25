@@ -76,7 +76,13 @@ function App() {
             setActivateSearch={setActivateSearch}
           />
 
-          <PhotoList photos={photos} setPhotoZoom={setPhotoZoom} />
+          {photos && <PhotoList photos={photos} setPhotoZoom={setPhotoZoom} />}
+
+          {photos && photos.length === 0 && (
+            <h3 className="no-photos">
+              There was a problem to get the images, get back latter!
+            </h3>
+          )}
 
           {photoZoom && (
             <ZoomPhoto photo={photoZoom} setPhotoZoom={setPhotoZoom} />

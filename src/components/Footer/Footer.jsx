@@ -8,7 +8,7 @@ import { FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <footer className="footer">
       <p>
         Powered by{" "}
         <a href="https://unsplash.com/developers" target="_blank">
@@ -23,7 +23,7 @@ const Footer = () => {
           Wesley Santos <FaGithub />
         </a>
       </p>
-    </div>
+    </footer>
   );
 };
 
