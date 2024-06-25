@@ -11,6 +11,8 @@
 }
 
 .photo-zoom-container {
+  display: flex;
+  justify-content: center;
   max-width: 90%;
   max-height: 90%;
 }
@@ -21,6 +23,34 @@
   border-radius: 8px;
 }
 
-button {
-  position: relative;
+.info {
+  border-radius: 8px;
+  margin-left: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  min-width: 30em;
+  color: black;
+}
+
+.info > ul {
+  list-style: none;
+  padding: 0;
+}
+
+.info > h3 {
+  font-size: 30px;
+}
+
+.info li {
+  margin-bottom: 50px;
+}
+
+.button-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  cursor: pointer;
 }

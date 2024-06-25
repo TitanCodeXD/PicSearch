@@ -44,7 +44,7 @@ function App() {
     const response = await axios.get("https://api.unsplash.com/photos/random", {
       params: {
         client_id: apiKey,
-        count: 0,
+        count: 6,
       },
     });
 
@@ -67,8 +67,6 @@ function App() {
   return (
     <>
       <div className="container">
-        <h1>PicSearch</h1>
-        <p>An images website</p>
         <div className="comp">
           <SearchBar
             setQuery={setQuery}
