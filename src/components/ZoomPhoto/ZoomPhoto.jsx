@@ -3,8 +3,9 @@ import React, { useRef } from "react";
 
 import axios from "axios";
 
-//CSS
+//CSS and ICONS
 import "./ZoomPhoto.css";
+import { IoCloseSharp } from "react-icons/io5";
 
 const ZoomPhoto = ({ photo, setPhotoZoom }) => {
   const imageDownloadRef = useRef(null);
@@ -48,7 +49,15 @@ const ZoomPhoto = ({ photo, setPhotoZoom }) => {
       >
         <img src={photo.urls.regular} alt={photo.alt_description} />
         <a ref={imageDownloadRef} className="hidden"></a>
-        <button onClick={() => downloadImage(photo)}>Download</button>
+
+        <div>
+          <p>Nome: {photo.user.name}</p>
+          <button onClick={() => setPhotoZoom(null)}>
+            <IoCloseSharp />
+          </button>
+
+          <button onClick={() => downloadImage(photo)}>Download</button>
+        </div>
       </div>
     </div>
   );
