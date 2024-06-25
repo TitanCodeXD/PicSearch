@@ -1,7 +1,7 @@
 //Hooks
 import React, { useRef } from "react";
 
-import { createApi } from "unsplash-js";
+import axios from "axios";
 
 //CSS
 import "./ZoomPhoto.css";
@@ -11,24 +11,29 @@ const ZoomPhoto = ({ photo, setPhotoZoom }) => {
 
   const downloadImage = async (photo) => {
     try {
-      const imgUrl = `${photo.urls.full}&client_id=${
-        import.meta.env.VITE_UNSPLASH_API_KEY
-      }`;
-      const response = await fetch(imgUrl);
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const blob = await response.blob();
+      const apiKey = import.meta.env.VITE_UNSPLASH_API_KEY;
 
-      // Configuração do link de download
+      const response = await axios.get(
+        `https://api.unsplash.com/photos/${photo.id}/download`,
+        {
+          params: {
+            client_id: apiKey,
+          },
+        }
+      );
+
+      if (!response.data.url) {
+        throw new Error("No download URL found");
+      }
+
+      const blob = await fetch(response.data.url).then((r) => r.blob());
+
       const url = window.URL.createObjectURL(blob);
       imageDownloadRef.current.href = url;
       imageDownloadRef.current.download = `${photo.id}.jpg`;
 
-      // Forçar o clique no link para iniciar o download
       imageDownloadRef.current.click();
 
-      // Revogar a URL do objeto blob
       window.URL.revokeObjectURL(url);
     } catch (error) {
       console.error("Error fetching download link:", error);
