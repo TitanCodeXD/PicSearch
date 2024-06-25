@@ -1,0 +1,19 @@
+.content {
+  margin: 20px auto;
+  width: 80%;
+  height: 620px;
+  text-align: center;
+}
+
+.btn {
+  margin-top: 2em;
+}
+
+span {
+  font-size: large;
+  font-weight: bold;
+}
+
+h2 {
+  margin-top: 8em;
+}

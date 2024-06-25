@@ -26,6 +26,13 @@
   transition: 0.4s;
 }
 
+#nav-links > li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1em;
+}
+
 .brand {
   display: flex;
   align-items: center;
@@ -34,8 +41,28 @@
 
 .brand-text {
   font-size: 1.2em;
+  margin-left: 10px;
 }
 
 .active {
-  background-color: red;
+  background-color: #414869;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#nav-links a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  padding: 5px 10px;
+}
+
+#nav-links a .about-icon {
+  margin-left: 5px;
+  font-size: 1.2em;
+}
+
+#nav-links a:hover {
+  text-decoration: dotted;
 }

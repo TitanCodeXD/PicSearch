@@ -5,8 +5,9 @@ import { NavLink, Link } from "react-router-dom";
 //Components
 import Logo from "../../img/Logo Cam Fit.png";
 
-//Css
+//Css and Icons
 import "./Navbar.css";
+import { IoIosInformationCircleOutline } from "react-icons/io";
 
 const Navbar = () => {
   return (
@@ -23,7 +24,7 @@ const Navbar = () => {
             to="/about"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
-            About
+            About <IoIosInformationCircleOutline className="about-icon" />
           </NavLink>
         </li>
       </ul>

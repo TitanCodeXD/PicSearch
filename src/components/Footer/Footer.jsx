@@ -19,7 +19,7 @@ const Footer = () => {
 
       <p>
         PicSearch &copy; 2024. Made by{" "}
-        <a href="https://portfolio-wesley-santos.netlify.app" target="_blank">
+        <a href="https://github.com/TitanCodeXD" target="_blank">
           Wesley Santos <FaGithub />
         </a>
       </p>
