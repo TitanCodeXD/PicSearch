@@ -6,7 +6,7 @@ import "./Footer.css";
 import { FaUnsplash } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <div className="footer">
       <p>
@@ -26,3 +26,5 @@ export const Footer = () => {
     </div>
   );
 };
+
+export default Footer;

@@ -47,3 +47,7 @@ button:hover {
   width: 80%;
   text-align: center;
 }
+
+li {
+  list-style-type: none;
+}

@@ -1,0 +1,32 @@
+#nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid hsl(0, 0%, 21%);
+  padding: 0.1em 1em;
+}
+
+#nav-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#nav-links span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgb(197, 78, 78);
+}
+
+#nav-links span:hover {
+  font-weight: 600;
+  color: red;
+  transition: 0.4s;
+}
+
+.active {
+  background-color: black;
+  color: white;
+}
