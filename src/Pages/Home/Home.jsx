@@ -44,7 +44,7 @@ function App() {
     const response = await axios.get("https://api.unsplash.com/photos/random", {
       params: {
         client_id: apiKey,
-        count: 6,
+        count: 8,
       },
     });
 
@@ -74,13 +74,19 @@ function App() {
             setActivateSearch={setActivateSearch}
           />
 
-          {photos && <PhotoList photos={photos} setPhotoZoom={setPhotoZoom} />}
-
-          {photos && photos.length === 0 && (
+          {photos && photos.length === 0 ? (
             <h3 className="no-photos">
-              There was a problem to get the images, get back latter!
+              There was a problem to get the images, problably can't get images
+              from API at this time, get back latter!
             </h3>
+          ) : (
+            <p className="info-home">
+              Click on the image to see it in zoom and get information about it,
+              as well as a download option.
+            </p>
           )}
+
+          {photos && <PhotoList photos={photos} setPhotoZoom={setPhotoZoom} />}
 
           {photoZoom && (
             <ZoomPhoto photo={photoZoom} setPhotoZoom={setPhotoZoom} />

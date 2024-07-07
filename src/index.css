@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #070707;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -35,7 +35,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #4d4d4d;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -45,7 +45,7 @@ button:hover {
 
 .container {
   margin: 20px auto;
-  width: 85%;
+  width: 73%;
   min-height: 620px;
   text-align: center;
 }
@@ -61,4 +61,8 @@ button:hover {
 
 li {
   list-style-type: none;
+}
+
+.info-home {
+  font-size: 15px;
 }
