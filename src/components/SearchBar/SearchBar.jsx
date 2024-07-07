@@ -1,11 +1,31 @@
 //Hooks
 import React from "react";
+import { useState } from "react";
 
 //CSS
 import "./SearchBar.css";
 
 const SearchBar = ({ setQuery, setCategoria, setActivateSearch }) => {
+  const [loading, setLoading] = useState(false);
+
   const categorias = ["Nature", "People", "Technology", "Animals", "Sports"];
+
+  //Função para realizar a pesquisa
+  const handleSearch = () => {
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+      setActivateSearch(true);
+    }, 1500);
+  };
+
+  //Função para botão de Enter
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
 
   return (
     <div className="search-bar">
@@ -13,6 +33,7 @@ const SearchBar = ({ setQuery, setCategoria, setActivateSearch }) => {
         type="text"
         placeholder="Search for an image..."
         onChange={(e) => setQuery(e.target.value)}
+        onKeyDown={handleKeyDown}
       />
       <select
         onChange={(e) => {
@@ -26,7 +47,9 @@ const SearchBar = ({ setQuery, setCategoria, setActivateSearch }) => {
           </option>
         ))}
       </select>
-      <button onClick={() => setActivateSearch(true)}>Search</button>
+      <button onClick={handleSearch}>Search</button>
+
+      {loading && <div className="loader"></div>}
     </div>
   );
 };
