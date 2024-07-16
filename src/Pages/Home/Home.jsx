@@ -15,7 +15,7 @@ function App() {
   const [photoZoom, setPhotoZoom] = useState(null);
   const [activateSearch, setActivateSearch] = useState(false);
 
-  const fetchData = async ([query, categoria]) => {
+  const fetchData = async ({ query, categoria }) => {
     const apiKey = import.meta.env.VITE_UNSPLASH_API_KEY;
 
     if (query || categoria) {
@@ -27,39 +27,52 @@ function App() {
         searchQuery = categoria;
       }
 
+      try {
+        const response = await axios.get(
+          `https://api.unsplash.com/search/photos`,
+          {
+            params: {
+              query: searchQuery,
+              client_id: apiKey,
+            },
+          }
+        );
+
+        if (response.status === 200 && response.data && response.data.results) {
+          setPhotos(response.data.results);
+        }
+      } catch (error) {
+        console.error("An error occurred when searching for photos: ", error);
+      }
+      return;
+    }
+
+    try {
       const response = await axios.get(
-        "https://api.unsplash.com/search/photos",
+        `https://api.unsplash.com/photos/random`,
         {
           params: {
             client_id: apiKey,
-            query: searchQuery,
+            count: 9,
           },
         }
       );
 
-      setPhotos(response.data.results);
-      return;
+      if (response.status === 200 && response.data) {
+        setPhotos(response.data);
+      }
+    } catch (error) {
+      console.error("An error occurred when searching for photos: ", error);
     }
-
-    const response = await axios.get("https://api.unsplash.com/photos/random", {
-      params: {
-        client_id: apiKey,
-        count: 9,
-      },
-    });
-
-    setPhotos(response.data);
-    console.log(setPhotos);
-    console.log(response.data);
   };
 
   useEffect(() => {
-    fetchData(query, categoria);
+    fetchData({ query, categoria });
   }, []);
 
   useEffect(() => {
     if (activateSearch) {
-      fetchData(query, categoria);
+      fetchData({ query, categoria });
       setActivateSearch(false);
     }
   }, [activateSearch]);

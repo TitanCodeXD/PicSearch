@@ -8,7 +8,14 @@ import "./SearchBar.css";
 const SearchBar = ({ setQuery, setCategoria, setActivateSearch }) => {
   const [loading, setLoading] = useState(false);
 
-  const categorias = ["Nature", "People", "Technology", "Animals", "Sports"];
+  const categorias = [
+    "",
+    "Nature",
+    "People",
+    "Technology",
+    "Animals",
+    "Sports",
+  ];
 
   //Função para realizar a pesquisa
   const handleSearch = () => {
@@ -36,6 +43,7 @@ const SearchBar = ({ setQuery, setCategoria, setActivateSearch }) => {
         onKeyDown={handleKeyDown}
       />
       <select
+        placeholder="Cate"
         onChange={(e) => {
           setCategoria(e.target.value);
           setActivateSearch(true);
@@ -43,7 +51,7 @@ const SearchBar = ({ setQuery, setCategoria, setActivateSearch }) => {
       >
         {categorias.map((category) => (
           <option key={category} value={category}>
-            {category}
+            {category || "Select a category"}
           </option>
         ))}
       </select>
