@@ -1,8 +1,12 @@
-# React + Vite
+# PicSearch
+An image gallery images. Seeking to evolve in programming, I made this site to improve my knowledge of React.js, using axios to work with APIs. This website is a personal project aimed at studies. An image gallery Website, where you search by category or randomly. This site was powered by the Unsplash API.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Home
+![image](https://github.com/user-attachments/assets/21e9cbbd-17a8-4287-b7a9-060dedcae8d3)
 
-Currently, two official plugins are available:
+## About
+![image](https://github.com/user-attachments/assets/dea8f7f3-9830-472a-9314-baf3e4a0755b)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 
+
+
